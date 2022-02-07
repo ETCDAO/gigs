@@ -1,10 +1,12 @@
+import { Link } from "gatsby";
 import React from "react";
 import GlobalStyles from "./../styles/GlobalStyles";
+import Wrapper from "./Wrapper";
 
 const Layout = ({ children, ...rest }) => (
   <div {...rest}>
     <GlobalStyles />
-    {children}
+    <Wrapper>{children}</Wrapper>
   </div>
 );
 

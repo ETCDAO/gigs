@@ -1,27 +1,73 @@
 import React from "react";
-import tw from "twin.macro";
+import { graphql, Link } from "gatsby";
+import "twin.macro";
 
-import Button from "../components/Button";
 import Layout from "../components/Layout";
 
-const styles = {
-  // Move long class sets out of jsx to keep it scannable
-  container: ({ hasBackground }) => [
-    tw`flex flex-col items-center justify-center h-screen`,
-    hasBackground && tw`bg-gradient-to-b from-green-100 to-green-500`,
-  ],
-};
-
-const IndexPage = () => (
-  <Layout>
-    <div css={styles.container({ hasBackground: true })}>
-      <div tw="flex flex-col justify-center h-full gap-y-5">
-        <Button variant="primary">Submit</Button>
-        <Button variant="secondary">Cancel</Button>
-        <Button isSmall>Close</Button>
+export default function IndexPage({
+  data: {
+    gigs: { edges: gigs },
+  },
+}) {
+  return (
+    <Layout>
+      <p>
+        ETCDAO Gigs is brand new and under construction. Please check back later
+        for more information and exciting new opportunities!
+      </p>
+      <div tw="border-gray-200 border divide-gray-200 divide-y rounded mt-10">
+        {gigs.map(
+          ({
+            node: {
+              gig: { excerpt, meta: gig },
+            },
+          }) => {
+            return (
+              <div tw="p-3 space-y-2">
+                <div tw="text-lg">
+                  <span tw="text-gray-500 ml-2 float-right"># {gig.id}</span>
+                  <Link tw="hover:underline" to={`/gigs/${gig.id}`}>
+                    {gig.title}
+                  </Link>
+                </div>
+                <div tw="flex items-center space-x-2 text-sm capitalize">
+                  <div>{gig.created}</div>
+                  <div>{gig.status}</div>
+                  <div>{gig.category}</div>
+                </div>
+                <div tw="text-gray-700 text-sm">{excerpt}</div>
+              </div>
+            );
+          }
+        )}
       </div>
-    </div>
-  </Layout>
-);
+      {/* <pre>{JSON.stringify(props, null, 2)}</pre> */}
+    </Layout>
+  );
+}
 
-export default IndexPage;
+export const query = graphql`
+  query {
+    gigs: allFile(
+      filter: { sourceInstanceName: { eq: "gigs" } }
+      sort: { fields: childMarkdownRemark___frontmatter___id, order: DESC }
+    ) {
+      edges {
+        node {
+          gig: childMarkdownRemark {
+            meta: frontmatter {
+              id
+              title
+              author
+              category
+              status
+              created(formatString: "MM-DD-YYYY")
+              updated(formatString: "MM-DD-YYYY")
+            }
+            excerpt
+          }
+        }
+      }
+    }
+  }
+`;

@@ -1,3 +1,13 @@
 module.exports = {
-  plugins: [{ resolve: `gatsby-plugin-emotion` }],
+  plugins: [
+    "gatsby-transformer-remark",
+    { resolve: `gatsby-plugin-emotion` },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/gigs`,
+        name: `gigs`,
+      },
+    },
+  ],
 };

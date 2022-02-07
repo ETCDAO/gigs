@@ -12,15 +12,18 @@
     "clean": "GATSBY_TELEMETRY_DISABLED=1 gatsby clean"
   },
   "dependencies": {
-    "@emotion/react": "^11.4.0",
-    "@emotion/styled": "^11.3.0",
-    "gatsby": "^3.9.0",
-    "gatsby-plugin-emotion": "^6.9.0",
+    "@emotion/react": "^11.7.1",
+    "@emotion/styled": "^11.6.0",
+    "@tailwindcss/typography": "^0.4.1",
+    "gatsby": "^4.6.2",
+    "gatsby-plugin-emotion": "^7.6.0",
+    "gatsby-source-filesystem": "^4.6.0",
+    "gatsby-transformer-remark": "^5.6.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
-    "tailwindcss": "^2.2.4",
-    "twin.macro": "^2.6.2"
+    "tailwindcss": "^2.2.19",
+    "twin.macro": "^2.8.2"
   }
 }

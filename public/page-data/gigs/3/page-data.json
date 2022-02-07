@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-pages-gigs-markdown-remark-frontmatter-id-js",
+    "path": "/gigs/3/",
+    "result": {"data":{"gig":{"meta":{"id":3,"title":"Fund a Jamaican Bobsled team","author":"Joe","category":"marketing","status":"approved","created":"02-08-2022","updated":"02-09-2022"},"file":{"name":"3-bobsled"},"html":"<p>Based on the success of dogecoin previous funding a bobsled team, ETC should do the same.</p>"}},"pageContext":{"id":"e4dca6f3-cf44-5da8-a793-8e0036cec311","frontmatter__id":3,"__params":{"frontmatter__id":"3"}}},
+    "staticQueryHashes": []}
