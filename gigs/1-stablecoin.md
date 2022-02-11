@@ -8,4 +8,4 @@ status: draft
 category: consultancy
 ---
 
-Hire a high ranking mathematician / cryptographer / security guy / decentralist to tell us how to move forward Ethereum Classic.
+Hire a high ranking mathematician / cryptographer / security guy / decentralist to tell us how to move forward with Ethereum Classic.
